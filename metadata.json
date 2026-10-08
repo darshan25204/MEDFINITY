@@ -1,0 +1,6 @@
+{
+  "name": "MEDFINITY Surgical Equipment",
+  "description": "Authorized dealer & rental provider of hospital ICU beds, OT furniture, patient mobility, respiratory care, and medical supplies in Bengaluru.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
