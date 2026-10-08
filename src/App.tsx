@@ -233,29 +233,32 @@ export default function App() {
         }}
       />
 
-      {/* Floating Action Button on Bottom Right: Instant WhatsApp Enquiry */}
-      <aside aria-label="Support and quote basket actions" className="fixed bottom-5 right-5 z-30 flex flex-col items-end gap-2.5">
-        {cartItems.length > 0 && (
-          <button
-            onClick={() => setIsCartOpen(true)}
-            className="flex items-center gap-2 px-4 py-2.5 bg-sky-900 hover:bg-sky-800 text-white font-bold text-xs rounded-full shadow-lg transition-all animate-bounce"
-          >
-            <ShoppingBag className="w-4 h-4 text-sky-200" />
-            <span>Quote Basket ({cartItems.length})</span>
-          </button>
-        )}
+      {/* Floating Actions - Bottom Right */}
+<aside
+  aria-label="Support and quote basket actions"
+  className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3"
+>
+  {cartItems.length > 0 && (
+    <button
+      onClick={() => setIsCartOpen(true)}
+      className="flex items-center gap-2 px-4 py-2.5 bg-sky-900 hover:bg-sky-800 text-white font-bold text-xs rounded-full shadow-lg transition-all"
+    >
+      <ShoppingBag className="w-4 h-4 text-sky-200" />
+      <span>Quote Basket ({cartItems.length})</span>
+    </button>
+  )}
 
-        <a
-          href={floatingWhatsAppUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded-full shadow-xl transition-transform hover:scale-105 active:scale-95 group"
-          title={`Enquire on WhatsApp (+${businessConfig.whatsappNumber})`}
-        >
-          <MessageCircle className="w-5 h-5 fill-white/20" />
-          <span className="hidden sm:inline">WhatsApp Enquiry</span>
-        </a>
-      </aside>
+  {/* WhatsApp */}
+  <a
+    href={floatingWhatsAppUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95"
+    title={`Enquire on WhatsApp (+${businessConfig.whatsappNumber})`}
+  >
+    <MessageCircle className="w-7 h-7" />
+  </a>
+</aside>
 
       {/* Toast Notification */}
       {toastMessage && (
