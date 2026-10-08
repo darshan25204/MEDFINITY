@@ -248,25 +248,29 @@ export default function App() {
     </button>
   )}
 
-  {/* WhatsApp */}
-  <a
-    href={floatingWhatsAppUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95"
-    title={`Enquire on WhatsApp (+${businessConfig.whatsappNumber})`}
-  >
-    <MessageCircle className="w-7 h-7" />
-  </a>
-</aside>
+  {/* Floating Actions */}
+{/* WhatsApp - Bottom Left */}
+<a
+  href={floatingWhatsAppUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-5 left-5 z-50 flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl transition-all duration-200 hover:scale-110 active:scale-95"
+  title={`Enquire on WhatsApp (+${businessConfig.whatsappNumber})`}
+  aria-label="WhatsApp Enquiry"
+>
+  <MessageCircle className="w-7 h-7" />
+</a>
 
-      {/* Toast Notification */}
-      {toastMessage && (
-        <aside aria-label="Notification alert" className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white px-4 py-2 rounded-xl shadow-xl flex items-center gap-2 text-xs font-semibold border border-slate-700 animate-fade-in">
-          <Check className="w-4 h-4 text-emerald-400" />
-          <span>{toastMessage}</span>
-        </aside>
-      )}
+{/* Quote Basket - Bottom Right */}
+{cartItems.length > 0 && (
+  <button
+    onClick={() => setIsCartOpen(true)}
+    className="fixed bottom-5 right-5 z-50 flex items-center gap-2 px-4 py-2.5 bg-sky-900 hover:bg-sky-800 text-white font-bold text-xs rounded-full shadow-lg transition-all"
+  >
+    <ShoppingBag className="w-4 h-4 text-sky-200" />
+    <span>Quote Basket ({cartItems.length})</span>
+  </button>
+)}
     </div>
   );
 }
